@@ -1,4 +1,5 @@
 from tkinter import *
+import py2sql_tabela_hq
 
 
 
@@ -8,6 +9,8 @@ def dados(entries):
 
 	#função com o dicionário com os lables para pegar as entradas nas caixas de testo que serão montadas na função formulario.
 	
+	linha_tab = []
+
 	titulo = entries['Titulo'].get()
 	colecao = entries['Coleção'].get()
 	editora = entries['Editora'].get
@@ -19,6 +22,9 @@ def dados(entries):
 	data = entries['Data (se peródico)'].get
 	price_cp = entries['Preço de Capa (reais)'].get
 	price = entries['Preço estimado (reais)'].get
+
+	#chama função para inserir a linha na tabela
+	py2sql_tabela_hq.insert_tab(titulo, colecao, editora, publisher, conserv, fechada, temp, ano_pub, data, price_cp, price)
 
 	# Falta passar para a função que irá alimentar a tabela em py2sql_hq.py
 
