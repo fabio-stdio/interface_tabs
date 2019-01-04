@@ -1,24 +1,26 @@
 from tkinter import *
 import py2sql_tabela_hq as py_sql
 
-campos = 'titulo', 'edição', 'tipo', 'subtipo', 'raridade'
+campos = 'carta', 'tipo', 'subtipo', 'raridade', 'cotação', 'data'
 
 def data_mtg(entries):
 
 	lista = []
 
-	titulo = entries['titulo'].get()
-	edition = entries['edição'].get()
-	tipo = entries['tipo'].get
+	titulo = entries['carta'].get()
+	tipo = entries['tipo'].get()
 	subtipo = entries['subtipo'].get
 	raridade = entries['raridade'].get
+	cotação = entries['cotação'].get
+	data_cot = entries['data'].get
+
 
 	for item in campos:
 		lista.append(item)
 
 
 
-	py_sql.insert_tab_teste(lista)
+	py_sql.tarefa_insere(lista)
 
 
 def formulario(root, campos):
