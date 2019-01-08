@@ -1,8 +1,7 @@
-import sqlite3
+import mysql.connector as mariadb
 import os.path
-from sqlite3 import Error
 
-arquivo_db = 'test.db'
+arquivo_db = 'test'
 
 #def insert_tab(char_t, int_n, char_col, char_ed, char_pub, char_con, char_f, char_l, int_ano, data, double_cp, double_est)
 def conection(arquivo_db):
@@ -11,7 +10,7 @@ def conection(arquivo_db):
 	#Conexão com a base de dados
 	try:
 
-		connection = sqlite3.connect(arquivo_db)
+		connection = mariadb.connect(database=arquivo_db)
 		return connection
 
 	except Error as e:
@@ -21,7 +20,14 @@ def conection(arquivo_db):
 
 
 
-#def cria_tabela(parametros, tipo):
+def cria_tabela(parametros, tipo):
+
+
+	conn = conection(arquivo_db)
+	cursor = conn.cursor()
+
+	cursor.execute
+
 	
 
 
