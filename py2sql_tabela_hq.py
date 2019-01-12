@@ -1,7 +1,7 @@
 import mysql.connector as mariadb
 import os.path
 
-arquivo_db = 'test'
+arquivo_db = 'teste'
 
 #def insert_tab(char_t, int_n, char_col, char_ed, char_pub, char_con, char_f, char_l, int_ano, data, double_cp, double_est)
 def conection(arquivo_db):
@@ -22,17 +22,20 @@ def conection(arquivo_db):
 
 def cria_tabela(parametros, tipo):
 
-
+	# Função para criar tabela, se ela existir a query não será feita.
 	conn = conection(arquivo_db)
 	cursor = conn.cursor()
 
-	cursor.execute
+	cursor.execute("""CREATE IF NOT EXIST  mtg (carta VARCHAR(20), tipo VARCHAR(20), subtipo VARCHAR(20), raridade VARCHAR(10), cotação VARCHAR(10), data_cotação DATE);""")
+	conn.close()
 
 	
 
 
 
 def tarefa_insere(lista):
+	
+
 	#cursor
 	conn = conection(arquivo_db)
 	cursor = conn.cursor()
